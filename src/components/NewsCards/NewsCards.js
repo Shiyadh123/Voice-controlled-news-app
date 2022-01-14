@@ -25,7 +25,7 @@ const infoCards = [
   },
 ];
 
-const NewsCards = ({ articles,activeArticle }) => {
+const NewsCards = ({ articles, activeArticle }) => {
   const classes = useStyles();
 
   if (articles.length === 0) {
@@ -38,30 +38,43 @@ const NewsCards = ({ articles,activeArticle }) => {
           spacing={3}
         >
           {infoCards.map((infoCard) => {
-            return <Grid
-              item
-              xs={12}
-              sm={6}
-              md={3}
-              lg={3}
-              className={classes.infoCard}
-            >
-              <div
-                className={classes.card}
-                style={{ backgroundColor: infoCard.color }}
+            return (
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                md={3}
+                lg={3}
+                className={classes.infoCard}
               >
-                <Typography variant="h5">{infoCard.title}</Typography>
-                {infoCard.info ? (
-                  <Typography variant="h6">
-                    <strong>{infoCard.title.split(" ")[2]}:</strong>
-                    <br /> <br /> {infoCard.info}
+                <div
+                  className={classes.card}
+                  style={{ backgroundColor: infoCard.color }}
+                >
+                  <Typography variant="h5">{infoCard.title}</Typography>
+                  {infoCard.info ? (
+                    <Typography variant="h6">
+                      <strong>{infoCard.title.split(" ")[2]}:</strong>
+                      <br /> <br /> {infoCard.info}
+                    </Typography>
+                  ) : (
+                    <div>
+                      <br />
+                      <br /> <br />
+                      <br />
+                      <br /> <br />
+                      <br />
+                      <br /> <br />
+                    </div>
+                  )}
+                  <br />
+                  <Typography variant="h6" style={{ color: "red" }}>
+                    Try saying:<br></br>
+                    <i>{infoCard.text}</i>
                   </Typography>
-                ) : <div><br /><br /> <br /><br /><br /> <br /><br /><br /> <br /></div>}
-                <br/>
-              <Typography variant="h6" style={{color:'red'}}>Try saying:<br></br><i>{infoCard.text}</i></Typography>
-
-              </div>
-            </Grid>
+                </div>
+              </Grid>
+            );
           })}
         </Grid>
       </Grow>
@@ -79,7 +92,12 @@ const NewsCards = ({ articles,activeArticle }) => {
         {articles.map((article, i) => {
           return (
             <Grid item xs={12} sm={6} md={4} lg={3} style={{ display: "flex" }}>
-              <NewsCard key={i} article={article} i={i} activeArticle={activeArticle}></NewsCard>
+              <NewsCard
+                key={i}
+                article={article}
+                i={i}
+                activeArticle={activeArticle}
+              ></NewsCard>
             </Grid>
           );
         })}
