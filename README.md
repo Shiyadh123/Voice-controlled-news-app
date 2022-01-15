@@ -13,3 +13,5 @@ We can search for news either based on the category, by using a term or from a p
 Here is the live link:
 [https://voice-controlled-news-appn.herokuapp.com/](https://voice-controlled-news-appn.herokuapp.com/)
 
+The front end is built using react and Alan AI is used for the voice interaction.News is fetched from news api. 
+
